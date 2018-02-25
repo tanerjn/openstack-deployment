@@ -1,2 +1,2 @@
-# openstack
-# scripts to create ports, launch instances and attach interfaces.
+
+# In order to use scripts, modify them for the desired configuration.
