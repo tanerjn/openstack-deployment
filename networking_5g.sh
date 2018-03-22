@@ -1,7 +1,62 @@
 #!/bin/bash
 #
 # Neutron port creation script with 5G core network fixed IPs for Openstack host.
-# to run the script /root/keystonerc_admin file should be sourced.
+
+
+
+source ~/keystonerc_admin 
+
+echo "mgmt interface"
+echo '------------------------------'
+
+neutron net-create mgmt
+neutron subnet-create --name mgmt_subnet mgmt 192.168.254.0/24 
+
+echo "net_a interface"
+echo '------------------------------'
+
+neutron net-create net_a
+neutron subnet-create --name net_a_subnet net_a 192.168.1.0/24 
+
+echo "net_b interface"
+echo '------------------------------'
+
+neutron net-create net_b
+neutron subnet-create --name net_b_subnet net_b 192.168.2.0/24 
+
+echo "net_c interface"
+echo '------------------------------'
+
+neutron net-create net_c
+neutron subnet-create --name net_c_3_subnet net_c 192.168.3.0/24
+neutron subnet-create --name net_c_6_subnet net_c 192.168.6.0/24 
+
+
+echo "net_d interface"
+echo '------------------------------'
+
+neutron net-create net_d
+neutron subnet-create --name net_d_subnet net_d 192.168.4.0/24 
+
+echo "access interface"
+echo '------------------------------'
+
+neutron net-create access
+neutron subnet-create --name access_subnet access 192.168.7.0/24
+
+neutron router-interface-add router1 private_subnet
+
+echo "router"
+
+neutron router-create router
+neutron router-gateway-set router external_network
+
+neutron router-interface-add router mgmt
+neutron router-interface-add router access
+
+
+
+echo '-------Creating ports for instances-------'
 
 echo "Neutron creates ports for BASE.."
 echo '------------------------------'
@@ -124,7 +179,12 @@ neutron port-create access --name gui_access --fixed-ip ip_address=192.168.7.175
 
 neutron port-create mgmt --name gui_mgmt --fixed-ip ip_address=192.168.254.175
 
-echo -e '\nPort creation finished. You can check your ports with "neutron port-list" or "openstack port list" command.\n'
 
+openstack port list
+
+neutron net-list
+
+echo '------------------------------------'
+echo -e '\nProcess has finished. You can check your networks and ports above as with "neutron port-list" or "openstack port list" commands.\n'
 
 
