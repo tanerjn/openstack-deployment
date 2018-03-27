@@ -1,2 +1,2 @@
 
-# In order to use scripts, modify them for the desired configuration.
+# Modify scripts for the desired configuration.
