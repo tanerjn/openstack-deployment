@@ -29,3 +29,4 @@ sudo service openstack-cinder-volume restart
 service openstack-nova-compute status
 service neutron-server status
 
+nova service-list

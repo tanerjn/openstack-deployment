@@ -1,0 +1,5 @@
+DEVICE=ext3
+TYPE=OVSPort
+DEVICETYPE=ovs
+OVS_BRIDGE=br-ext3
+ONBOOT=yes
