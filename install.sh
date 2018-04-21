@@ -13,11 +13,11 @@ export USR=${USER}
 
 echo -e "Root "
 
-su -p root 
 
-echo "$USR ALL=(ALL) ALL" | sudo EDITOR='tee -a' visudo
 
-exit
+sudo echo "$USR ALL=(ALL) ALL" | sudo EDITOR='tee -a' visudo
+
+
 
 
 sudo yum update -y 
