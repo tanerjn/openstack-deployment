@@ -42,4 +42,3 @@ echo -e "\n------------Updated port list----------"
 neutron port-list
 
 sleep 2s
-

@@ -19,6 +19,9 @@ echo "$USR ALL=(ALL) ALL" | sudo EDITOR='tee -a' visudo
 
 exit
 
+
+sudo yum update -y 
+
 sudo usermod -aG wheel $USER
 
 sudo sed -i -e  's/enforcing/disabled/g' /etc/selinux/config 
@@ -26,6 +29,20 @@ sudo sed -i -e  's/enforcing/disabled/g' /etc/selinux/config
 sudo yum install python-pip
 
 sudo yum install python-setuptools
+
+sudo yum upgrade
+
+sudo yum install yum-utils
+
+sudo yum install qemu-kvm qemu-img virt-manager libvirt libvirt-python libvirt-client virt-install virt-viewer bridge-utils
+
+sudo systemctl start libvirtd
+
+sudo systemctl enable libvirtd
+
+sudo yum install python-openstackclient
+
+sudo yum install openstack-selinux 
 
 sudo systemctl disable firewalld 
 sleep 1s
@@ -45,10 +62,8 @@ sudo yum install -y centos-release-openstack-queens
 
 yum-config-manager --enable openstack-queens 
 
-sudo yum update -y 
-
 sudo yum install -y openstack-packstack
 
 packstack --allinone --provision-demo=n --os-neutron-ovs-bridge-mappings=extnet:br-ex --os-neutron-ovs-bridge-interfaces=br-ex:eth0 --os-neutron-ml2-type-drivers=vxlan,flat
 
-echo -e "\n***************\n Check the last log.\n *************** \n If no error occurs, installation can be followed with net_init.sh script.\n ************* \n Before that reboot is required\n ***************\n" 
+echo -e "\n***************\n Check the last log.\n *************** \n If no erroroccurs, installation can be followed with net_init.sh script.\n ************* \n Before that reboot is required\n ***************\n" 

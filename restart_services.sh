@@ -30,3 +30,5 @@ service openstack-nova-compute status
 service neutron-server status
 
 nova service-list
+
+neutron agent-list
