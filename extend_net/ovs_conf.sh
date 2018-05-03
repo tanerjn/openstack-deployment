@@ -2,10 +2,17 @@
 
 # openvswitch configurations
 
+sudo cp ifcfg-eth1 /etc/sysconfig/network-scripts/
+sudo cp ifcfg-eth2 /etc/sysconfig/network-scripts/
+sudo cp ifcfg-br-ext3 /etc/sysconfig/network-scripts/
+sudo cp ifcfg-br-ext3 /etc/sysconfig/network-scripts/
+
+
+
 ovs-vsctl add-br br-ext2
-ovs-vsctl add-port br-ext2 ext2
+ovs-vsctl add-port br-ext2 eth1
 ovs-vsctl add-br br-ext3
-ovs-vsctl add-port br-ext3 ext3
+ovs-vsctl add-port br-ext3 eth2
 
 sudo mv /etc/neutron/l3_agent.ini /etc/neutron/l3_agent.ini.backup
 sudo cp l3_agent.ini /etc/neutron/

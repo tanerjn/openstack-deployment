@@ -12,7 +12,7 @@
 #sudo cp cfg/ifcfg-br-ex /etc/sysconfig/network-scripts/
 
 #service network restart
-sleep 1s 
+
 
 source ~/keystonerc_admin
 
@@ -32,6 +32,11 @@ neutron subnet-create --name internal_subnet internal_network 192.168.7.0/24
 
 neutron router-interface-add router internal_subnet
 
+echo "----------Updated net list--------"
+sleep 2s
+
 neutron net-list
 
+
+echo "---------Updated subnet list--------"
 neutron subnet-list

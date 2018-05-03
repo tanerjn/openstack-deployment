@@ -14,9 +14,7 @@ export USR=${USER}
 echo -e "Root "
 
 
-
 sudo echo "$USR ALL=(ALL) ALL" | sudo EDITOR='tee -a' visudo
-
 
 
 
