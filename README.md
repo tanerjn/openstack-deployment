@@ -1,6 +1,5 @@
 # openstack-deployment
 
-Installation, deployment and few config scripts for few OpenStack services. Hope it would be useful for someone else. 
-
+Installation, deployment and few config scripts for few OpenStack services. 
 
 Tested only on CentOS7.
