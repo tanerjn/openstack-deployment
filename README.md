@@ -1,4 +1,4 @@
-# OpenStack-deployment of 5G networking
+# Deployment OpenStack - 5G/Ad-hoc Networks
 
 Installation, deployment and few config scripts for few OpenStack services. 
 
